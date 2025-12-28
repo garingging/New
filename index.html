@@ -378,14 +378,25 @@ audio{ display:none; }
 </footer>
 
 <script>
-/* BUKA UNDANGAN + MUSIC */
+document.body.classList.add("lock");
+
 function openInvitation(){
-    document.getElementById("opening").classList.add("hidden");
-    document.getElementById("music").play();
+    const opening = document.getElementById("opening");
+    opening.classList.add("hidden");
+
+    document.body.classList.remove("lock");
+
+    const music = document.getElementById("music");
+    if(music){
+        music.play().catch(()=>{});
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
-function toggleMusic(){
-    let m=document.getElementById("music");
-    m.paused ? m.play() : m.pause();
+</script>
 }
 
 /* COPY REKENING */
