@@ -397,22 +397,47 @@ function openInvitation(){
     });
 }
 </script>
+
+
+<script>
+/* KUNCI SCROLL SAAT OPENING */
+document.body.classList.add("lock");
+
+/* BUKA UNDANGAN */
+function openInvitation(){
+    const opening = document.getElementById("opening");
+    opening.classList.add("hidden");
+
+    document.body.classList.remove("lock");
+
+    const music = document.getElementById("music");
+    if(music){
+        music.play().catch(()=>{});
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* TOGGLE MUSIC */
+function toggleMusic(){
+    const music = document.getElementById("music");
+    if(!music) return;
+    music.paused ? music.play() : music.pause();
 }
 
 /* COPY REKENING */
 function copyText(text){
-    navigator.clipboard.writeText(text);
-    alert("Nomor rekening berhasil disalin");
+    navigator.clipboard.writeText(text)
+    .then(()=>alert("Nomor rekening berhasil disalin"));
 }
 
-/* NAMA TAMU OTOMATIS DARI LINK */
+/* NAMA TAMU DARI LINK */
 const params = new URLSearchParams(window.location.search);
 const guest = params.get("to");
 
 if(guest){
-    const name = decodeURIComponent(guest);
-    document.getElementById("guestName").innerText = name;
-    document.getElementById("guestName2").innerText = name;
+    document.getElementById("guestName").innerText =
+        decodeURIComponent(guest);
 }
 </script>
 
