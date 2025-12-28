@@ -343,6 +343,12 @@ audio{ display:none; }
     color:#c9a24d;
     text-shadow:0 0 12px rgba(201,162,77,0.6);
 }
+
+ @keyframes floatHoly{
+    0%   { transform: translateY(-24px); }
+    50%  { transform: translateY(-36px); }
+    100% { transform: translateY(-24px); }
+    }
 </style>
 </head>
 
@@ -376,7 +382,8 @@ audio{ display:none; }
     <div class="cross">✝️</div>
 
     <div class="frame">
-        <img src="foto.jpg">
+    <span class="cross-frame">✝️</span>
+    <img src="foto.jpg">
     </div>
 
     <h2>Robin Damanik & Karmilah</h2>
