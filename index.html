@@ -83,25 +83,33 @@ button.gold{ background:#c9a24d; }
 }
 
 /* COVER */
+/* ================= COVER ================= */
 .cover{
-    min-height:100vh;
+    position: relative;
+    min-height: 100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
+    align-items:center;
+    overflow: hidden;
+
+    background-image: url("bg.jpg?v=4");
+    background-size: cover;
+    background-position: center;
 }
-.frame{
-    border:5px solid #c9a24d;
-    padding:8px;
-    border-radius:20px;
-    display:inline-block;
+
+/* overlay agar teks jelas */
+.cover::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(255,255,255,0.6);
+    z-index:0;
 }
-.frame img{
-    width:260px;
-    border-radius:15px;
-}
-.verse{
-    font-style:italic;
-    margin:20px 0;
+
+.cover > *{
+    position: relative;
+    z-index:2;
 }
 
 /* GALERI */
