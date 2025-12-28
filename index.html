@@ -349,6 +349,30 @@ audio{ display:none; }
     50%  { transform: translateY(-36px); }
     100% { transform: translateY(-24px); }
     }
+
+    /* ===== GALERI VERTIKAL SCROLL ===== */
+.galeri{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 30px 15px;
+}
+
+/* FOTO GALERI */
+.galeri img{
+    width: 100%;
+    max-width: 360px;
+    height: 420px;
+
+    object-fit: cover;
+    margin: 0 auto;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,0.18),
+        0 6px 14px rgba(0,0,0,0.12);
+}
 </style>
 </head>
 
