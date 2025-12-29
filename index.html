@@ -649,6 +649,36 @@ function openInvitation(){
 }
 </script>
 
+    <script>
+let autoScrollInterval = null;
+
+function startAutoScroll(){
+    autoScrollInterval = setInterval(() => {
+        window.scrollBy({
+            top: 1,
+            left: 0,
+            behavior: "smooth"
+        });
+
+        // berhenti jika sudah di bawah
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+            stopAutoScroll();
+        }
+    }, 30);
+}
+
+function stopAutoScroll(){
+    if(autoScrollInterval){
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = null;
+    }
+}
+
+/* HENTIKAN AUTO SCROLL JIKA USER INTERAKSI */
+["wheel","touchstart","keydown"].forEach(evt => {
+    window.addEventListener(evt, stopAutoScroll, { passive:true });
+});
+    </script>
 
 <script>
 /* KUNCI SCROLL SAAT OPENING */
@@ -667,6 +697,9 @@ function openInvitation(){
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // START AUTO SCROLL
+    setTimeout(startAutoScroll, 1200);
 }
 
 /* TOGGLE MUSIC */
